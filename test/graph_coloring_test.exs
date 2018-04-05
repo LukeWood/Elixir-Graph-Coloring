@@ -23,13 +23,15 @@ defmodule GraphColoringTest do
 
   test "Shortest Vertex Last Ordering" do
     import GraphColoring.ShortestVertexLast
-    ordering = generate_ordering(
+    {ordering, _degree_when_removed} = generate_ordering(
       [
         [1, 2, 3],
         [0],
-        [0],
+        [0, 3, 1],
         [1]
-      ]) |> IO.inspect
+      ]
+    )
+    assert ordering == [2, 0, 3, 1]
   end
 
 end

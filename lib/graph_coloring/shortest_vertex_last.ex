@@ -70,7 +70,7 @@ defmodule GraphColoring.ShortestVertexLast do
   end
 
   defp generate_ordering_recursive(adj_list, _node_to_degree, _degree_to_nodes, degrees_when_removed, ordering, count) when map_size(adj_list) == count do
-    {ordering |> Enum.reverse, degrees_when_removed}
+    {ordering, degrees_when_removed}
   end
   defp generate_ordering_recursive( adj_list,  node_to_degree, degree_to_nodes, degrees_when_removed, ordering, count) do
     node = next_node(degree_to_nodes)
